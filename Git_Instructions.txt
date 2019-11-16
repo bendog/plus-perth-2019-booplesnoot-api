@@ -1,0 +1,6 @@
+Check if git is installed
+- Open git cmd 
+- type git to check if installed
+
+Add remote repo
+- git remote add

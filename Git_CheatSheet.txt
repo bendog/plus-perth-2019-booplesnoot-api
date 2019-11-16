@@ -1,0 +1,24 @@
+Git CMD CheatSheet:
+
+Check if git is installed
+- Open git cmd 
+- type git to check if installed
+
+Add remote repo
+> cd [YOUR folder name] (navigate to folder of your choice)
+> cd.. (to go back a folder if in correct)
+> mkdir plus-perth-2019-booplesnoot-frontend (for frontend dev)
+> mkdir plus-perth-2019-booplesnoot-api (for database dev)
+> git remote add origin https://github.com/PerthWebGirls/plus-perth-2019-booplesnoot-api.git
+
+Commit files 
+> git status (red means files are unstaged)
+> git add . (this stages all files)
+> git status (green means files have been staged)
+> git commit -m "initial commit"
+> git push origin master -u (to push to remote)
+
+Search help function
+> git help -a
+> :q (to exit help)
+

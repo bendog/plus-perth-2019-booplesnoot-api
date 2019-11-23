@@ -1,0 +1,18 @@
+[
+    {
+        "model": "recipefinderApp.ingredient",
+        "pk": 1,
+        "fields": {
+            "title": "5 spice powder",
+            "ingredient_id": 1002002
+        }
+    },
+    {
+        "model": "recipefinderApp.ingredient",
+        "pk": 2,
+        "fields": {
+            "title": "acorn squash",
+            "ingredient_id": 11482
+        }
+    }
+]

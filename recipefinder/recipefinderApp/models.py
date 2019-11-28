@@ -1,27 +1,29 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+User = get_user_model()
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # username = models.CharField(max_length=50, unique=True)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
-    email = models.EmailField()
+    # date_of_birth = models.DateField("Date of birth", auto_now=False, auto_now_add=False)
+    # nick_name = models.CharField(max_length=50, null=True)
+    image = models.ImageField(upload_to='profile/', null=True)
 
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Profile.objects.create(user=instance)
+class Preferences(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    metric = models.BooleanField(default=True)
 
-@receiver(post_save, sender=User)
-def save_user_profile(sender, instance, **kwargs):
-    instance.profile.save()
+class Diet(models.Model):
+    name = models.CharField(max_length=50) 
 
+class DietRequirement(models.Model):
+    user = models.ForeignKey(User, related_name='diet_requirements', on_delete=models.CASCADE)
+    diet = models.ForeignKey(Diet, related_name='users', on_delete=models.CASCADE)
 
 class Recipe(models.Model):
-    id = models.AutoField(primary_key=True)
+    # id = models.AutoField(primary_key=True)  Ben says delete this because this is there by default
     title = models.CharField(max_length=200)
     units = models.CharField(max_length=200)
     image = models.ImageField(upload_to='recipe')

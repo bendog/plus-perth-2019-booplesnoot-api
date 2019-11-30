@@ -1,1 +1,0 @@
-web: waitress-serve recipefinder.wsgi:application

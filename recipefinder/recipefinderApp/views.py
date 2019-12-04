@@ -9,6 +9,10 @@ from rest_framework import viewsets
 from .serializers import UserSerializer, GroupSerializer, ProfileSerializer
 from .models import Profile
 
+u = User.objects.get(username="john")
+u.set_password("new password")
+u.save()
+
 
 def IndexView(request):
     url = "https://api.spoonacular.com/recipes/search?apiKey=3dc537f85d054e38a4caadd57f887609&number=5"

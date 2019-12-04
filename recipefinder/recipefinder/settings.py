@@ -95,7 +95,6 @@ DATABASES = {
     }
 }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -127,3 +126,7 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())

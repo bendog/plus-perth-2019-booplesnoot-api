@@ -82,12 +82,8 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": "recipefinder",  # you will need to create this db
-        "USER": "postgres",  # enter your user name here
-<<<<<<< HEAD
-        "PASSWORD": "#3LeND0g311",
-=======
-        "PASSWORD": "poppies8",
->>>>>>> test
+        "USER": os.environ.get('DB_USER'),  # enter your user name here
+        "PASSWORD": os.environ.get('DB_PASS'),
         "HOST": "localhost",
         "PORT": "5432",
     }
